@@ -1,5 +1,9 @@
-const errorMiddleware = (req, res) => {
-  res.status(404).json({ message: 'Product not found' });
+const errorMiddleware = (error, _req, res, _next) => {
+  if (error.status) {
+    return res.status(error.status).json({ message: error.message });
+  }
+  console.log(error);
+  return res.status(500).json({ message: 'internal server error' });
 };
 
 module.exports = errorMiddleware;

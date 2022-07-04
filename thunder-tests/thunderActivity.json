@@ -19,12 +19,22 @@
     "containerId": "",
     "name": "http://localhost:3000/products",
     "url": "http://localhost:3000/products",
-    "method": "GET",
+    "method": "POST",
     "sortNum": 0,
     "created": "2022-06-29T21:52:52.137Z",
-    "modified": "2022-06-29T23:13:03.324Z",
-    "headers": [],
+    "modified": "2022-07-04T11:55:22.007Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "ooooooooooooooooooo"
+      }
+    ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"balaa\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
