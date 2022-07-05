@@ -7,6 +7,8 @@ const router = express.Router();
 
 router.get('/:id', productsController.getById);
 
+// router.delete('/:id', productsController.getById);
+
 router.get('/', productsController.getAll);
 
 router.post(

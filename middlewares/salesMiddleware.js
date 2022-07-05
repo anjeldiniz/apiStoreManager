@@ -1,5 +1,4 @@
 const errors = require('../helpers/arrayErrors');
-// const productsModel = require('../models/productsModel');
 
 const salesMiddleware = async (req, res, next) => {
   req.body.forEach(({ productId, quantity }) => {

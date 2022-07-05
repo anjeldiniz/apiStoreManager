@@ -29,6 +29,16 @@ const insert = async (req, res, next) => {
   }
 };
 
+// const delete = async (req, res, next) => {
+//   try {
+//     const { id } = req.params;
+//     const data = await productsService.insert(id);
+//     return res.status(201).json(data);
+//   } catch (error) {
+//     return next(error);
+//   }
+// };
+
 module.exports = {
   getAll,
   getById,

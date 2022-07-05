@@ -1,5 +1,5 @@
 const salesModel = require('../models/salesModel');
-const arrayErrors = require('../helpers/arrayErrors');
+// const arrayErrors = require('../helpers/arrayErrors');
 
 const addSales = async (products) => {
   const saleId = await salesModel.insert.addSales();
@@ -16,8 +16,7 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
-  const [data] = await salesModel.getById(id);
-  if (data === undefined) throw arrayErrors[0];
+  const data = await salesModel.getById(id);
   return data;
 };
 

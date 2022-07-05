@@ -18,6 +18,12 @@ const insert = async (name) => {
   return data;
 };
 
+// const delete = async (id) => {
+//   const query = 'INSERT INTO StoreManager.products WHERE id=?;';
+//   const [data] = await connection.execute(query, [id]);
+//   return data;
+// };
+
 module.exports = {
   getAll,
   getById,
