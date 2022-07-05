@@ -22,7 +22,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-06-29T21:52:52.137Z",
-    "modified": "2022-07-04T11:55:22.007Z",
+    "modified": "2022-07-04T18:22:38.832Z",
     "headers": [
       {
         "name": "Authorization",
@@ -32,7 +32,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"name\": \"balaa\"\n}",
+      "raw": "{\n    \"name\": \"hot dog\"\n}",
       "form": []
     },
     "tests": []
@@ -49,6 +49,25 @@
     "modified": "2022-06-30T20:12:11.570Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "6522c44e-dbf3-4beb-9698-c7249d5e2938",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales",
+    "url": "http://localhost:3000/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-07-04T18:08:39.600Z",
+    "modified": "2022-07-05T02:51:02.386Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "  [\n    {\n      \"productId\": 11,\n      \"quantity\": 1\n    },\n    {\n     \"productId\": 2,\n      \"quantity\": 1\n    }\n  ]",
+      "form": []
+    },
     "tests": []
   }
 ]

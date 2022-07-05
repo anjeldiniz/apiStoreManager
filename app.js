@@ -2,6 +2,7 @@ const express = require('express');
 
 const app = express();
 const productsRoute = require('./routes/productsRoute');
+const salesRoute = require('./routes/salesRoute');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 
 // não remova esse endpoint, é para o avaliador funcionar
@@ -12,6 +13,7 @@ app.get('/', (_request, response) => {
 app.use(express.json());
 
 app.use('/products', productsRoute);
+app.use('/sales', salesRoute);
 
 app.use(errorMiddleware);
 
