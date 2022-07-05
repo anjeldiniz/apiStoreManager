@@ -1,12 +1,28 @@
 const salesModel = require('../models/salesModel');
+const arrayErrors = require('../helpers/arrayErrors');
 
-const insert = {
-  addSales: async (date, productId, quantity) => {
-    const data = await salesModel.insert(date, productId, quantity);
-    console.log(data);
-    const response = { productId: data.productId, quantity: data.quantity };
-    return response;
-  },
+const addSales = async (products) => {
+  const saleId = await salesModel.insert.addSales();
+  const response = products.map(({ productId, quantity }) =>
+    salesModel.insert.sentSales(saleId, productId, quantity));
+  await Promise.all(response);
+  return { id: saleId, itemsSold: products };
 };
 
-module.exports = { insert };
+// 8
+const getAll = async () => {
+  const data = await salesModel.getAll();
+  return data;
+};
+
+const getById = async (id) => {
+  const [data] = await salesModel.getById(id);
+  if (data === undefined) throw arrayErrors[0];
+  return data;
+};
+
+module.exports = {
+  addSales,
+  getAll,
+  getById,
+};
