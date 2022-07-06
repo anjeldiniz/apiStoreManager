@@ -18,14 +18,13 @@ const insert = async (name) => {
   return response;
 };
 
-// const delete = async (id) => {
-//   const data = await productsModel.insert(id);
-//   const response = { id: data.insertId };
-//   return response;
-// };
+const deleteById = async (id) => {
+  await productsModel.deleteById(id);
+};
 
 module.exports = {
   getAll,
   getById,
   insert,
+  deleteById,
 };

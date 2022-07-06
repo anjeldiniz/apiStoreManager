@@ -29,18 +29,19 @@ const insert = async (req, res, next) => {
   }
 };
 
-// const delete = async (req, res, next) => {
-//   try {
-//     const { id } = req.params;
-//     const data = await productsService.insert(id);
-//     return res.status(201).json(data);
-//   } catch (error) {
-//     return next(error);
-//   }
-// };
+const deleteById = async (req, res) => {
+    const { id } = req.params;
+  const haveId = await productsService.getById(id);
+  if (haveId.length === 0) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+  await productsService.deleteById(id);
+  return res.status(204).end();
+};
 
 module.exports = {
   getAll,
   getById,
   insert,
+  deleteById,
 };
