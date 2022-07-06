@@ -29,15 +29,26 @@ const insert = async (req, res, next) => {
   }
 };
 
-const deleteById = async (req, res) => {
+const deleteById = async (req, res, next) => {
+  try {
     const { id } = req.params;
-  const haveId = await productsService.getById(id);
-  if (haveId.length === 0) {
-    return res.status(404).json({ message: 'Product not found' });
+    await productsService.getById(id);
+    await productsService.deleteById(id);
+    return res.status(204).end();
+  } catch (error) {
+    return next(error);
   }
-  await productsService.deleteById(id);
-  return res.status(204).end();
 };
+
+// const deleteById = async (req, res) => {
+//   const { id } = req.params;
+//   const hasId = await productsService.getById(id);
+//   if (hasId.length === 0) {
+//     return res.status(404).json({ message: 'Product not found' });
+//   }
+//   await productsService.deleteById(id);
+//   return res.status(204).end();
+// };
 
 module.exports = {
   getAll,

@@ -19,8 +19,14 @@ const insert = async (name) => {
 };
 
 const deleteById = async (id) => {
-  await productsModel.deleteById(id);
+  const hasId = await productsModel.deleteById(id);
+  if (hasId.length === 0) throw arrayErrors[0];
+  return hasId;
 };
+
+// const deleteById = async (id) => {
+//   await productsModel.deleteById(id);
+// };
 
 module.exports = {
   getAll,
