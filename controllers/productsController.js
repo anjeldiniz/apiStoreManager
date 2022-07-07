@@ -1,12 +1,8 @@
 const productsService = require('../services/productsService');
 
-const getAll = async (req, res) => {
-  try {
-    const data = await productsService.getAll();
-    return res.status(200).json(data);
-  } catch (error) {
-    return res.status(400).json(error);
-  }
+const getAll = async (_req, res) => {
+  const data = await productsService.getAll();
+  return res.status(200).json(data);
 };
 
 const getById = async (req, res, next) => {
@@ -18,6 +14,18 @@ const getById = async (req, res, next) => {
     next(error);
   }
 };
+
+// const putById = async (req, res, next) => {
+//   try {
+//     const { id } = req.params;
+//     const { name } = req.body;
+//     await productsService.getById(id);
+//     await productsService.putById(id, name);
+//     return res.status(200).json({ id: Number(id), name });
+//   } catch (error) {
+//     next(error);
+//   }
+// };
 
 const insert = async (req, res, next) => {
   try {
@@ -40,19 +48,10 @@ const deleteById = async (req, res, next) => {
   }
 };
 
-// const deleteById = async (req, res) => {
-//   const { id } = req.params;
-//   const hasId = await productsService.getById(id);
-//   if (hasId.length === 0) {
-//     return res.status(404).json({ message: 'Product not found' });
-//   }
-//   await productsService.deleteById(id);
-//   return res.status(204).end();
-// };
-
 module.exports = {
   getAll,
   getById,
   insert,
   deleteById,
+  // putById,
 };

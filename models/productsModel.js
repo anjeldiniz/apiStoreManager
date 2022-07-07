@@ -9,9 +9,14 @@ const getAll = async () => {
 const getById = async (id) => {
   const query = 'SELECT * FROM StoreManager.products WHERE id=?;';
   const [data] = await connection.execute(query, [id]);
-  console.log(data);
   return data;
 };
+
+// const putById = async (id) => {
+//   const query = 'SELECT products_id FROM StoreManager.products WHERE products_id=?;';
+//   const [prodId] = await connection.execute(query, [id]);
+//   return prodId;
+// };
 
 const insert = async (name) => {
   const query = 'INSERT INTO StoreManager.products (name) VALUES (?);';
@@ -30,4 +35,5 @@ module.exports = {
   getById,
   insert,
   deleteById,
+  // putById,
 };

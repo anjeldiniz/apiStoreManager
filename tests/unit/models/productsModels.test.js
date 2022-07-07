@@ -1,19 +1,21 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 const connection = require('../../../models/connections');
-const ProductsModel = require('../../../models/productsModel');
+const productsModel = require('../../../models/productsModel');
 
 describe('Consulta um produto no Banco de Dados', () => {
-  const resolve = [{ id: 1, name: 'pão de queijo', id: 2, name: 'brigadeiro' }];
+  const resolve = [[{ id: 1, name: 'pão de queijo' }]];
   
-  beforeEach(async () => {
-    const execute = [{ id: 1, name: 'pão de queijo' }];
-    sinon.stub(connection, 'execute').resolves(execute);
+  beforeEach(() => {
+    sinon.stub(connection, 'execute').resolves(resolve);
   });
 
-  afterEach(async () => {
+  afterEach(() => {
     connection.execute.restore();
   });
 
-  describe('')
+  it('Testando se todos os produtos são retornados', async () => {
+    const prod = await productsModel.getAll();
+    expect(prod).to.be.equal(resolve[0]);
+  });
 });

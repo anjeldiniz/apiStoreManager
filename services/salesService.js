@@ -1,5 +1,4 @@
 const salesModel = require('../models/salesModel');
-// const arrayErrors = require('../helpers/arrayErrors');
 
 const addSales = async (products) => {
   const saleId = await salesModel.insert.addSales();

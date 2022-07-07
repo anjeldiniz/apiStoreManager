@@ -13,6 +13,8 @@ router.post(
   nameMiddleware,
   productsController.insert,
   );
+
+router.put('/:id', productsController.getById);  
   
 router.delete('/:id', productsController.deleteById);
   
