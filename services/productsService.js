@@ -12,13 +12,6 @@ const getById = async (id) => {
   return data;
 };
 
-// const putById = async (id) => {
-//   const [prodId] = await productsModel.putById(id);
-//   if (prodId === undefined) throw arrayErrors[0];
-//   const newProd = 
-//   return prodId;
-// };
-
 const insert = async (name) => {
   const data = await productsModel.insert(name);
   const response = { id: data.insertId, name };
@@ -36,5 +29,4 @@ module.exports = {
   getById,
   insert,
   deleteById,
-  // putById,
 };

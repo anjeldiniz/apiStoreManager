@@ -10,7 +10,6 @@ const insert = async (req, res, next) => {
   }
 };
 
-// 8
 const getAll = async (_req, res) => {
   const sale = await salesService.getAll();
   if (!sale) {

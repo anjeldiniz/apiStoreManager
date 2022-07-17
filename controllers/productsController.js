@@ -15,18 +15,6 @@ const getById = async (req, res, next) => {
   }
 };
 
-// const putById = async (req, res, next) => {
-//   try {
-//     const { id } = req.params;
-//     const { name } = req.body;
-//     await productsService.getById(id);
-//     await productsService.putById(id, name);
-//     return res.status(200).json({ id: Number(id), name });
-//   } catch (error) {
-//     next(error);
-//   }
-// };
-
 const insert = async (req, res, next) => {
   try {
     const { name } = req.body;
@@ -53,5 +41,4 @@ module.exports = {
   getById,
   insert,
   deleteById,
-  // putById,
 };
